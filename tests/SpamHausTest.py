@@ -2,7 +2,7 @@ import unittest
 import sys
 
 sys.path.append("..")
-from SpamHausChecker import SpamHausChecker
+from spam.SpamHausChecker import SpamHausChecker
 
 class MockSpamHausChecker(SpamHausChecker):
     def set_spam(self, is_spam):
