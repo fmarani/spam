@@ -6,7 +6,7 @@ setup(name='spam',
         description="Spam related services interface",
         author="Federico Marani",
         author_email="flagzeta@gmail.com",
-        package_dir={'': '.'},
+        packages=['spam'],
         requires=[],    
         classifiers = [
             "Intended Audience :: Developers",
