@@ -1,7 +1,14 @@
 SPAM
 ----
 
-A library to query spamhaus servers and verify whether an url has been classified as spam
+A library to verify whether an url has been classified as spam
+
+Supports:
+- SpamHaus zen 
+- Surbl multi
+
+Planned:
+- PhishTank
 
 For any further information, you can watch the tutorial here:
 http://www.youtube.com/watch?v=anwy2MPT5RE
