@@ -44,6 +44,9 @@ class SpamHausChecker(object):
 
     def check_domain(self, domain):
         """check a domain"""
+        domain = domain[domain.find('@')+1:] # remove user info
+        if domain.count(":") > 0:
+            domain = domain[:domain.find(':')] # remove port info
         ip = self._resolve(domain)
         if not ip:
             raise DomainInexistentException

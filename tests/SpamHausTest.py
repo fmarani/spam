@@ -22,19 +22,16 @@ class MockSpamHausChecker(SpamHausChecker):
             return "127.0.0.2"
         return None
 
-class TestSequenceFunctions(unittest.TestCase):
-
+class TestSpamHausChecker(unittest.TestCase):
     def setUp(self):
         self.checker = MockSpamHausChecker()
 
     def test_spammer(self):
-        # make sure the shuffled sequence does not lose any elements
         self.checker.set_spam(True)
         result = self.checker.check_url("http://doevil.com/")
         self.assertEqual(result, MockSpamHausChecker.IS_SPAM)
 
     def test_innocent(self):
-        # make sure the shuffled sequence does not lose any elements
         self.checker.set_spam(False)
         result = self.checker.check_url("http://dogood.com/")
         self.assertEqual(result, MockSpamHausChecker.IS_NOT_SPAM)
