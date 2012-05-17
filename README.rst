@@ -1,5 +1,7 @@
-SPAM - URL spam testing library [![Build Status](https://secure.travis-ci.org/fmarani/spam.png)](http://travis-ci.org/fmarani/spam)
+SPAM - URL spam testing library 
 ===============================
+
+.. image:: https://secure.travis-ci.org/fmarani/spam.png
 
 A library to verify whether an url has been classified as spam
 
@@ -76,9 +78,3 @@ Ensure tests pass::
 
     ./runtests.sh
 
-Hack away
-
-Build status
-------------
-
-.. image:: https://secure.travis-ci.org/fmarani/spam.png
