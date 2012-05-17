@@ -2,7 +2,7 @@
 
 from setuptools import setup
 
-setup(name='spam',
+setup(name='spam-blocklists',
         version='0.9',
         url='https://github.com/fmarani/spam',
         description="Spam related services interface",
