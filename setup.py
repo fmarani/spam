@@ -1,9 +1,10 @@
 from setuptools import setup
 
 setup(name='spam',
-        version='0.2.0',
+        version='0.9',
         url='https://github.com/fmarani/spam',
         description="Spam related services interface",
+        long_description=open('README.rst').read(),
         author="Federico Marani",
         author_email="flagzeta@gmail.com",
         packages=['spam'],

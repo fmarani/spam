@@ -1,8 +1,7 @@
 import unittest
 import sys
 
-sys.path.append("..")
-from spam.SpamHausChecker import SpamHausChecker
+from spam.spamhaus import *
 
 class MockSpamHausChecker(SpamHausChecker):
     def set_spam(self, is_spam):
@@ -35,8 +34,4 @@ class TestSpamHausChecker(unittest.TestCase):
         self.checker.set_spam(False)
         result = self.checker.check_url("http://dogood.com/")
         self.assertEqual(result, MockSpamHausChecker.IS_NOT_SPAM)
-
-
-if __name__ == '__main__':
-    unittest.main()
 

@@ -2,8 +2,7 @@ import unittest
 import sys
 import StringIO
 
-sys.path.append("..")
-from spam.SurblChecker import SurblChecker
+from spam.surbl import *
 
 class MockSurblChecker(SurblChecker):
     def _query_surbl(self, zone):
@@ -24,8 +23,3 @@ class TestSurblChecker(unittest.TestCase):
     def test_innocent(self):
         result = self.checker.check_url("http://dogood.com/")
         self.assertEqual(result, MockSurblChecker.IS_NOT_SPAM)
-
-
-if __name__ == '__main__':
-    unittest.main()
-

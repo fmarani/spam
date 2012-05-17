@@ -2,19 +2,20 @@
 
 from urlparse import urlparse
 from socket import gethostbyname
-from DomainInexistentException import DomainInexistentException
+from spam import DomainInexistentException
+from os.path import join, abspath, dirname
 
 class SurblChecker(object):
     """spam checker using surbl"""
     IS_SPAM = 1
     IS_NOT_SPAM = 2
 
-    def __init__(self, two_level_file, three_level_file):
-        super(SurblChecker, self).__init__()
+    def __init__(self, 
+                 two_level_file = open(join(abspath(dirname(__file__)) + "/two-level-tlds")),
+                 three_level_file = open(join(abspath(dirname(__file__)) + "/three-level-tlds"))):
         self._load_datafiles(two_level_file, three_level_file)
     
     def _load_datafiles(self, two, three):
-        """docstring for load_datafiles"""
         self._two_list = list(two.readlines())
         self._three_list = list(three.readlines())
 
@@ -75,3 +76,10 @@ class SurblChecker(object):
         surbl_result = self._query_surbl(name_to_check)
         return self._decode_surbl(surbl_result)
 
+    def is_spam(self, url):
+        """shortcut for check_url == IS_SPAM"""
+        return self.check_url(url) == self.IS_SPAM
+
+    def is_not_spam(self, url):
+        """shortcut for check_url == IS_NOT_SPAM"""
+        return self.check_url(url) == self.IS_NOT_SPAM

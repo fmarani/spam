@@ -2,16 +2,14 @@
 
 from urlparse import urlparse
 from socket import gethostbyname
-from DomainInexistentException import DomainInexistentException
+
+from spam import DomainInexistentException
 
 class SpamHausChecker(object):
     """spam checker using spamhaus"""
     IS_SPAM = 1
     IS_NOT_SPAM = 2
 
-    def __init__(self):
-        super(SpamHausChecker, self).__init__()
-    
     def _query_spamhaus(self, spamhaus_zone):
         try:
             return gethostbyname(spamhaus_zone)
@@ -25,13 +23,11 @@ class SpamHausChecker(object):
             return None
 
     def _build_spamhaus_zone(self, ip):
-        """docstring for _build_spamhaus_zone"""
         ip_segments = ip.split(".")
         ip_segments.reverse()
         return ".".join(ip_segments) + ".zen.spamhaus.org"
 
     def _decode_spamhaus(self, spamhaus_result):
-        """decode spamhaus ip codes"""
         if spamhaus_result:
             return self.IS_SPAM
         else:
@@ -54,3 +50,10 @@ class SpamHausChecker(object):
         spamhaus_result = self._query_spamhaus(spamhaus_zone)
         return self._decode_spamhaus(spamhaus_result)
 
+    def is_spam(self, url):
+        """shortcut for check_url == IS_SPAM"""
+        return self.check_url(url) == self.IS_SPAM
+
+    def is_not_spam(self, url):
+        """shortcut for check_url == IS_NOT_SPAM"""
+        return self.check_url(url) == self.IS_NOT_SPAM

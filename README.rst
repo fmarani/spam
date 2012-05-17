@@ -1,0 +1,83 @@
+===============================
+SPAM - URL spam testing library
+===============================
+
+A library to verify whether an url has been classified as spam
+
+Supports:
+- SpamHaus zen 
+- Surbl multi
+
+Planned:
+- PhishTank
+
+For any further information, you can watch the tutorial here:
+http://www.youtube.com/watch?v=anwy2MPT5RE
+
+Install
+-------
+
+From PyPI (stable)::
+
+    pip install spam
+
+From Github (unstable)::
+
+    pip install git+git://github.com/fmarani/spam.git#egg=spam
+
+Use
+---
+
+Spamhaus::
+
+    >>> from spam.spamhaus import SpamHausChecker
+    >>> checker = SpamHausChecker()
+
+    # google.com is a good domain
+    >>> checker.is_spam("http://www.google.com/search?q=food")
+    False
+
+    # this domain does not exist
+    >>> checker.is_spam("http://buyv1agra.com/")
+    Traceback (most recent call last):
+        ...
+    DomainInexistentException
+
+    # this is a scam
+    >>> checker.is_spam("http://mihouyuan.com/login.htm")
+    True
+
+Surbl::
+
+    >>> from spam.surbl import SurblChecker
+    >>> checker = SurblChecker()
+
+    # google.com test
+    >>> checker.is_spam("http://www.google.com/search?q=food")
+    False
+
+    # spamhaus says it is spam, surbl does not
+    >>> checker.is_spam("http://mihouyuan.com/login.htm")
+    False
+
+    # test endpoint for surbl
+    >>> checker.is_spam("http://surbl-org-permanent-test-point.com/")
+    True
+
+Contribute
+----------
+
+Clone and install testing dependencies::
+
+    pip install -r requirements.txt
+
+Ensure tests pass::
+
+    ./runtests.sh
+
+Hack away
+
+Build status
+------------
+
+.. image:: https://secure.travis-ci.org/fmarani/spam.png
