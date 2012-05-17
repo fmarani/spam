@@ -1,15 +1,16 @@
-===============================
-SPAM - URL spam testing library
+SPAM - URL spam testing library [![Build Status](https://secure.travis-ci.org/fmarani/spam.png)](http://travis-ci.org/fmarani/spam)
 ===============================
 
 A library to verify whether an url has been classified as spam
 
 Supports:
-- SpamHaus zen 
-- Surbl multi
+
+* SpamHaus zen 
+* Surbl multi
 
 Planned:
-- PhishTank
+
+* PhishTank
 
 For any further information, you can watch the tutorial here:
 http://www.youtube.com/watch?v=anwy2MPT5RE
