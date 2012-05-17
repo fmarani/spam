@@ -22,11 +22,11 @@ Install
 
 From PyPI (stable)::
 
-    pip install spam
+    pip install spam-blocklists
 
 From Github (unstable)::
 
-    pip install git+git://github.com/fmarani/spam.git#egg=spam
+    pip install git+git://github.com/fmarani/spam.git#egg=spam-blocklists
 
 Use
 ---
