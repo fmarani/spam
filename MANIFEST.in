@@ -1,2 +1,4 @@
 include *.rst
 exclude tests/*
+include spam/two-level-tlds
+include spam/three-level-tlds
