@@ -10,7 +10,7 @@ setup(name='spam-blocklists',
         author="Federico Marani",
         author_email="flagzeta@gmail.com",
         packages=['spam'],
-        package_data={'spam': ['spam/two-level-tlds', 'spam/three-level-tlds']},
+        package_data={'spam': ['two-level-tlds', 'three-level-tlds']},
         requires=[],    
         classifiers = [
             "Intended Audience :: Developers",
