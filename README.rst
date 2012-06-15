@@ -8,11 +8,22 @@ A library to verify whether an url has been classified as spam
 Supports:
 
 * SpamHaus zen 
+
+  * SBL (e-mail spam)
+  * XBL (infected PCs)
+  * PBL (unsolicited smtp traffic)
+
 * Surbl multi
 
-Planned:
+  * Spamcop
+  * sa-blacklist
+  * Outblaze
+  * Abusebutler
+  * Phishtank
+  * Zeus tracker
+  * jwSpamSpy
+  * Prolocation
 
-* PhishTank
 
 For any further information, you can watch the tutorial here:
 http://www.youtube.com/watch?v=anwy2MPT5RE
