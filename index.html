@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>Spam by fmarani</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Spam</h1>
+        <h2>Python library to check urls on spamhaus or surbl</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/fmarani/spam/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/fmarani/spam/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/fmarani/spam" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>URL spam testing library </h1>
+
+<p><img src="https://secure.travis-ci.org/fmarani/spam.png" alt="travis build"></p>
+
+<p>A library to verify whether an url has been classified as spam</p>
+
+<p>Supports:</p>
+
+<p>SpamHaus zen </p>
+
+<ul>
+<li>SBL (e-mail spam)</li>
+<li>XBL (infected PCs)</li>
+<li>PBL (unsolicited smtp traffic)</li>
+</ul><p>Surbl multi</p>
+
+<ul>
+<li>Spamcop</li>
+<li>sa-blacklist</li>
+<li>Outblaze</li>
+<li>Abusebutler</li>
+<li>Phishtank</li>
+<li>Zeus tracker</li>
+<li>jwSpamSpy</li>
+<li>Prolocation</li>
+</ul><p>For any further information, you can watch the tutorial <a href="http://www.youtube.com/watch?v=anwy2MPT5RE">here</a></p>
+
+<p>Continuous integration: <a href="http://travis-ci.org/fmarani/spam">Travis profile for fmarani/spam</a></p>
+
+<h2>Install</h2>
+
+<p>From PyPI (stable):</p>
+
+<pre><code>pip install spam-blocklists
+</code></pre>
+
+<p>From Github (unstable):</p>
+
+<pre><code>pip install git+git://github.com/fmarani/spam.git#egg=spam-blocklists
+</code></pre>
+
+<h2>Use</h2>
+
+<p>Spamhaus:</p>
+
+<pre><code>&gt;&gt;&gt; from spam.spamhaus import SpamHausChecker
+&gt;&gt;&gt; checker = SpamHausChecker()
+
+# google.com is a good domain
+&gt;&gt;&gt; checker.is_spam("http://www.google.com/search?q=food")
+False
+
+# this domain does not exist
+&gt;&gt;&gt; checker.is_spam("http://buyv1agra.com/")
+Traceback (most recent call last):
+    ...
+DomainInexistentException
+
+# this is a scam
+&gt;&gt;&gt; checker.is_spam("http://mihouyuan.com/login.htm")
+True
+</code></pre>
+
+<p>Surbl:</p>
+
+<pre><code>&gt;&gt;&gt; from spam.surbl import SurblChecker
+&gt;&gt;&gt; checker = SurblChecker()
+
+# google.com test
+&gt;&gt;&gt; checker.is_spam("http://www.google.com/search?q=food")
+False
+
+# spamhaus says it is spam, surbl does not
+&gt;&gt;&gt; checker.is_spam("http://mihouyuan.com/login.htm")
+False
+
+# test endpoint for surbl
+&gt;&gt;&gt; checker.is_spam("http://surbl-org-permanent-test-point.com/")
+True
+</code></pre>
+
+<h2>Contribute</h2>
+
+<p>Clone and install testing dependencies:</p>
+
+<pre><code>pip install -r requirements.txt
+</code></pre>
+
+<p>Ensure tests pass:</p>
+
+<pre><code>./runtests.sh
+</code></pre>
+
+<h2>Usage as a web service</h2>
+
+<p>If you are interested in using this library from any other language (PHP, Java, Scala, etc...) you can use the REST api available to everyone on Mashape. Check it out!</p>
+
+<p><a href="http://www.mashape.com/flagz/spamhaus-and-surbl-rest-interface">Mashape Spamhaus-Surbl Rest API</a></p>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
